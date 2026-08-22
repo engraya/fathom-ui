@@ -1,0 +1,232 @@
+/**
+ * Fathom UI — design tokens + component styles.
+ *
+ * Tokens are CSS custom properties so the library is themeable without a build
+ * step and framework-agnostic. Light is defined on :root; dark is applied both
+ * by OS preference and by an explicit [data-theme="dark"] so apps can offer a
+ * toggle. Consumers: `import "@engraya/fathom-ui/styles.css"`.
+ */
+
+:root {
+  /* Neutrals (cool gray) */
+  --fathom-bg: #ffffff;
+  --fathom-surface: #f7f8fa;
+  --fathom-fg: #16181d;
+  --fathom-fg-muted: #5b626e;
+  --fathom-border: #dfe3ea;
+  --fathom-border-strong: #c6ccd6;
+
+  /* Brand */
+  --fathom-primary: #4f46e5;
+  --fathom-primary-hover: #4338ca;
+  --fathom-primary-fg: #ffffff;
+  --fathom-ring: #6366f1;
+
+  /* Semantic */
+  --fathom-success: #167c4a;
+  --fathom-success-bg: #e6f4ec;
+  --fathom-warning: #9a6700;
+  --fathom-warning-bg: #fbf1dc;
+  --fathom-danger: #c0362c;
+  --fathom-danger-hover: #a52c24;
+  --fathom-danger-bg: #fbe9e7;
+  --fathom-info: #1f6feb;
+  --fathom-info-bg: #e6f0fd;
+
+  /* Scale */
+  --fathom-radius: 0.5rem;
+  --fathom-radius-sm: 0.375rem;
+  --fathom-radius-full: 999px;
+  --fathom-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fathom-shadow: 0 1px 2px rgba(16, 18, 23, 0.06), 0 8px 24px rgba(16, 18, 23, 0.08);
+  --fathom-focus: 0 0 0 2px var(--fathom-bg), 0 0 0 4px var(--fathom-ring);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fathom-bg: #14161a;
+    --fathom-surface: #1c1f25;
+    --fathom-fg: #eef0f3;
+    --fathom-fg-muted: #a2aab6;
+    --fathom-border: #2b303a;
+    --fathom-border-strong: #3a4150;
+    --fathom-primary: #7c78f0;
+    --fathom-primary-hover: #918dff;
+    --fathom-primary-fg: #0f1013;
+    --fathom-ring: #8b87ff;
+    --fathom-success: #57c98a;
+    --fathom-success-bg: #12251a;
+    --fathom-warning: #e0a53f;
+    --fathom-warning-bg: #2a2113;
+    --fathom-danger: #f0736f;
+    --fathom-danger-hover: #ff8a86;
+    --fathom-danger-bg: #2a1614;
+    --fathom-info: #5aa0f5;
+    --fathom-info-bg: #12203a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fathom-bg: #14161a;
+  --fathom-surface: #1c1f25;
+  --fathom-fg: #eef0f3;
+  --fathom-fg-muted: #a2aab6;
+  --fathom-border: #2b303a;
+  --fathom-border-strong: #3a4150;
+  --fathom-primary: #7c78f0;
+  --fathom-primary-hover: #918dff;
+  --fathom-primary-fg: #0f1013;
+  --fathom-ring: #8b87ff;
+  --fathom-success: #57c98a;
+  --fathom-success-bg: #12251a;
+  --fathom-warning: #e0a53f;
+  --fathom-warning-bg: #2a2113;
+  --fathom-danger: #f0736f;
+  --fathom-danger-hover: #ff8a86;
+  --fathom-danger-bg: #2a1614;
+  --fathom-info: #5aa0f5;
+  --fathom-info-bg: #12203a;
+}
+
+/* ---------------- Button ---------------- */
+.fathom-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--fathom-font);
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid transparent;
+  border-radius: var(--fathom-radius);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.fathom-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--fathom-focus);
+}
+.fathom-btn:disabled,
+.fathom-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.fathom-btn--sm { height: 2rem; padding: 0 0.75rem; font-size: 0.8125rem; }
+.fathom-btn--md { height: 2.5rem; padding: 0 1rem; font-size: 0.875rem; }
+.fathom-btn--lg { height: 3rem; padding: 0 1.375rem; font-size: 1rem; }
+.fathom-btn--primary { background: var(--fathom-primary); color: var(--fathom-primary-fg); }
+.fathom-btn--primary:hover:not(:disabled) { background: var(--fathom-primary-hover); }
+.fathom-btn--secondary { background: var(--fathom-surface); color: var(--fathom-fg); border-color: var(--fathom-border-strong); }
+.fathom-btn--secondary:hover:not(:disabled) { border-color: var(--fathom-fg-muted); }
+.fathom-btn--ghost { background: transparent; color: var(--fathom-fg); }
+.fathom-btn--ghost:hover:not(:disabled) { background: var(--fathom-surface); }
+.fathom-btn--danger { background: var(--fathom-danger); color: #fff; }
+.fathom-btn--danger:hover:not(:disabled) { background: var(--fathom-danger-hover); }
+
+/* ---------------- Input ---------------- */
+.fathom-input {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  font-family: var(--fathom-font);
+  font-size: 0.875rem;
+  color: var(--fathom-fg);
+  background: var(--fathom-bg);
+  border: 1px solid var(--fathom-border-strong);
+  border-radius: var(--fathom-radius);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.fathom-input::placeholder { color: var(--fathom-fg-muted); }
+.fathom-input:focus-visible {
+  outline: none;
+  border-color: var(--fathom-ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--fathom-ring) 30%, transparent);
+}
+.fathom-input:disabled { opacity: 0.55; cursor: not-allowed; background: var(--fathom-surface); }
+.fathom-input--invalid,
+.fathom-input[aria-invalid="true"] { border-color: var(--fathom-danger); }
+.fathom-input--invalid:focus-visible,
+.fathom-input[aria-invalid="true"]:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--fathom-danger) 30%, transparent);
+}
+
+/* ---------------- Badge ---------------- */
+.fathom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--fathom-font);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--fathom-radius-full);
+  border: 1px solid transparent;
+}
+.fathom-badge--neutral { background: var(--fathom-surface); color: var(--fathom-fg-muted); border-color: var(--fathom-border); }
+.fathom-badge--success { background: var(--fathom-success-bg); color: var(--fathom-success); }
+.fathom-badge--warning { background: var(--fathom-warning-bg); color: var(--fathom-warning); }
+.fathom-badge--danger { background: var(--fathom-danger-bg); color: var(--fathom-danger); }
+.fathom-badge--info { background: var(--fathom-info-bg); color: var(--fathom-info); }
+
+/* ---------------- Dialog ---------------- */
+.fathom-dialog__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 18, 23, 0.5);
+  animation: fathom-fade-in 0.15s ease;
+}
+.fathom-dialog__content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 2rem);
+  max-width: 28rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  background: var(--fathom-bg);
+  color: var(--fathom-fg);
+  border: 1px solid var(--fathom-border);
+  border-radius: var(--fathom-radius);
+  box-shadow: var(--fathom-shadow);
+  padding: 1.5rem;
+  font-family: var(--fathom-font);
+  animation: fathom-pop-in 0.15s ease;
+}
+.fathom-dialog__content:focus-visible { outline: none; box-shadow: var(--fathom-shadow), var(--fathom-focus); }
+.fathom-dialog__title { margin: 0 0 0.35rem; font-size: 1.125rem; font-weight: 700; }
+.fathom-dialog__description { margin: 0 0 1rem; color: var(--fathom-fg-muted); font-size: 0.9rem; }
+.fathom-dialog__close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--fathom-fg-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--fathom-radius-sm);
+  cursor: pointer;
+}
+.fathom-dialog__close:hover { background: var(--fathom-surface); color: var(--fathom-fg); }
+.fathom-dialog__close:focus-visible { outline: none; box-shadow: var(--fathom-focus); }
+
+@keyframes fathom-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fathom-pop-in {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.97); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fathom-dialog__overlay,
+  .fathom-dialog__content { animation: none; }
+}
