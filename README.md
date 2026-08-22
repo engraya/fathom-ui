@@ -2,7 +2,9 @@
 
 An accessible, tested React component library. Headless behavior from Radix, themeable through CSS variables, shipped as tree-shakeable ESM + CJS with types.
 
+[![npm](https://img.shields.io/npm/v/@engraya/fathom-ui)](https://www.npmjs.com/package/@engraya/fathom-ui)
 [![CI](https://github.com/engraya/fathom-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/engraya/fathom-ui/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/@engraya/fathom-ui)](./LICENSE)
 
 > Built as the shared foundation for my other projects — every component is keyboard-accessible, unit- and a11y-tested (jest-axe), and documented in Storybook.
 
