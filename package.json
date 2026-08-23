@@ -1,7 +1,7 @@
 {
   "name": "@engraya/fathom-ui",
-  "version": "0.1.0",
-  "description": "An accessible, tested React component library — headless behavior from Radix, themeable via CSS variables.",
+  "version": "0.2.0",
+  "description": "An accessible, tested React component library \u2014 headless behavior from Radix, themeable via CSS variables.",
   "license": "MIT",
   "author": "Ahmad Yakubu Ahmad",
   "type": "module",
@@ -31,8 +31,8 @@
     "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "node api.js && tsup",
+    "dev": "node api.js && tsup --watch",
     "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
