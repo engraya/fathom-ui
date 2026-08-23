@@ -54,6 +54,9 @@ Override any token in your own CSS:
 | `Input` | `invalid` toggles `aria-invalid` and error styling |
 | `Badge` | `variant` (neutral/success/warning/danger/info) |
 | `Dialog` | Radix-backed: focus trap, `Esc` to close, scroll lock, required accessible title |
+| `Tabs` | Radix-backed: roving tabindex, arrow-key navigation, correct `tablist`/`tab`/`tabpanel` ARIA |
+| `Switch` | `role="switch"`, controlled or uncontrolled, keyboard-operable |
+| `Tooltip` | Radix-backed: shows on hover/focus, portaled, positioned; provider included |
 
 ```tsx
 import { Dialog, DialogTrigger, DialogClose, DialogContent, Button } from "@engraya/fathom-ui";

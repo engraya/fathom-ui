@@ -9,4 +9,7 @@ export {
   DialogContent,
   type DialogContentProps,
 } from "./components/Dialog";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/Tabs";
+export { Switch, type SwitchProps } from "./components/Switch";
+export { Tooltip, TooltipProvider, type TooltipProps } from "./components/Tooltip";
 export { cn } from "./lib/cn";

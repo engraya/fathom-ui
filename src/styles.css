@@ -221,6 +221,89 @@
 .fathom-dialog__close:hover { background: var(--fathom-surface); color: var(--fathom-fg); }
 .fathom-dialog__close:focus-visible { outline: none; box-shadow: var(--fathom-focus); }
 
+/* ---------------- Tabs ---------------- */
+.fathom-tabs__list {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--fathom-border);
+}
+.fathom-tabs__trigger {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--fathom-font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--fathom-fg-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.fathom-tabs__trigger:hover { color: var(--fathom-fg); }
+.fathom-tabs__trigger[data-state="active"] {
+  color: var(--fathom-primary);
+  border-bottom-color: var(--fathom-primary);
+}
+.fathom-tabs__trigger:focus-visible { outline: none; box-shadow: var(--fathom-focus); border-radius: var(--fathom-radius-sm); }
+.fathom-tabs__content {
+  padding-top: 1rem;
+  font-family: var(--fathom-font);
+  color: var(--fathom-fg);
+}
+.fathom-tabs__content:focus-visible { outline: none; box-shadow: var(--fathom-focus); border-radius: var(--fathom-radius-sm); }
+
+/* ---------------- Switch ---------------- */
+.fathom-switch {
+  all: unset;
+  box-sizing: border-box;
+  width: 2.6rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  background: var(--fathom-border-strong);
+  border-radius: var(--fathom-radius-full);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.fathom-switch[data-state="checked"] { background: var(--fathom-primary); }
+.fathom-switch:focus-visible { box-shadow: var(--fathom-focus); }
+.fathom-switch:disabled { opacity: 0.55; cursor: not-allowed; }
+.fathom-switch__thumb {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  background: #fff;
+  border-radius: var(--fathom-radius-full);
+  box-shadow: 0 1px 2px rgba(16, 18, 23, 0.3);
+  transform: translateX(0.175rem);
+  transition: transform 0.15s ease;
+  will-change: transform;
+}
+.fathom-switch__thumb[data-state="checked"] { transform: translateX(1.275rem); }
+
+/* ---------------- Tooltip ---------------- */
+.fathom-tooltip__content {
+  background: var(--fathom-fg);
+  color: var(--fathom-bg);
+  font-family: var(--fathom-font);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--fathom-radius-sm);
+  box-shadow: var(--fathom-shadow);
+  max-width: 18rem;
+  user-select: none;
+  animation: fathom-fade-in 0.12s ease;
+}
+.fathom-tooltip__arrow { fill: var(--fathom-fg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fathom-tooltip__content,
+  .fathom-switch__thumb { animation: none; transition: none; }
+}
+
 @keyframes fathom-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fathom-pop-in {
   from { opacity: 0; transform: translate(-50%, -48%) scale(0.97); }
